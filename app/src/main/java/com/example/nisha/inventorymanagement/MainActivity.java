@@ -6,11 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
 import com.example.nisha.inventorymanagement.data.Product;
 import com.example.nisha.inventorymanagement.data.ProductContract;
 import com.example.nisha.inventorymanagement.data.ProductDatabaseHelper;
-
 import static com.example.nisha.inventorymanagement.data.ProductContract.ProductEntry;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,10 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         productDatabaseHelper = new ProductDatabaseHelper(this);
-
-
         Product product1  = new Product("Lipstick",500,100,"/lipstick.png","Nisha","nisha@gmail.com","1234567891");
-
         Product product2 = new Product("Foundation",355.5,150,"/foundation.png","Pradip","pradip@gmail.com","7894561230");
 
         //Insert dummy data
@@ -81,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 ProductEntry.COLUMN_NAME_SUPPLIER_PHONE_NUMBER
         };
 
-
         Cursor cursor = db.query(
                 ProductEntry.TABLE_NAME,                     // The table to query
                 projection,                               // The columns to return
@@ -97,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
     /* Inserts Product Details */
     private void insertProduct(Product product) {
-
 
         //Get writable database because we want to write in database
         SQLiteDatabase database = productDatabaseHelper.getWritableDatabase();
